@@ -127,16 +127,16 @@ class DrawTreeByLink(object):
 						curNode = curNode.parent
 			n += 1
 
-		# for curNode in drawList:
-		# 	if len(curNode.children) > 1:
-		# 		x = 0
-		# 		for ch in curNode.children.values():
-		# 			x += ch.drawXY[0]
-		# 		curNode.drawXY = x/len(curNode.children), curNode.drawXY[1]
-		# 	elif 0 in curNode.children:
-		# 		curNode.drawXY = curNode.children[0].drawXY[0] + curNode.children[0].drawWidth, curNode.drawXY[1]
-		# 	elif 1 in curNode.children:
-		# 		curNode.drawXY = curNode.children[1].drawXY[0] - curNode.children[1].drawWidth, curNode.drawXY[1]
+		for curNode in drawList:
+			if len(curNode.children) > 1:
+				x = 0
+				for ch in curNode.children.values():
+					x += ch.drawXY[0]
+				curNode.drawXY = x/len(curNode.children), curNode.drawXY[1]
+			elif 0 in curNode.children:
+				curNode.drawXY = curNode.children[0].drawXY[0] + curNode.children[0].drawWidth, curNode.drawXY[1]
+			elif 1 in curNode.children:
+				curNode.drawXY = curNode.children[1].drawXY[0] - curNode.children[1].drawWidth, curNode.drawXY[1]
 
 		for curNode in drawList:
 			x1, y1 = curNode.drawXY
